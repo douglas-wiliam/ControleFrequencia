@@ -17,6 +17,7 @@ public class Funcionario {
     private ArrayList<Frequencia> frequencias;
 
     public Funcionario(String nome, String cpf) {
+        frequencias = new ArrayList<>();
         this.nome = nome;
         this.cpf = cpf;
     }
