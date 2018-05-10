@@ -23,18 +23,16 @@ public class Empresa {
     public static synchronized Empresa getInstance() {
         if (uniqueInstance == null) {
             uniqueInstance = new Empresa();
+            nome = "Sem Nome Definido";
         }
 
         return uniqueInstance;
 
     }
 
-    public static String getNome() {
-        return nome;
-    }
-    
-    public static void setNome(String nome){
+    public static String alteraNomeEmpresa(String nome) {
         Empresa.nome = nome;
+        return "Nome alterado com Sucesso.";
     }
 
     private static Funcionario buscaFuncionario(String cpf) {
@@ -75,18 +73,34 @@ public class Empresa {
 
     public static String exibeFrequenciaFuncionarioPorPeriodo(String cpf, String dataInicio, String dataFim) {
         Funcionario f = buscaFuncionario(cpf);
-        ArrayList<Frequencia> localFrequencias = new ArrayList<>();
+        ArrayList<Frequencia> localFrequencias;
         String output = null;
 
         if (f != null) {
+
             localFrequencias = f.buscarFrequenciaPorPeriodo(dataInicio, dataFim);
 
-            output += "\t Empresa: VIVA NATUREZA IND E COM DE PROD NAT LTDA \n"
-                    + "\t Funcionário: " + f.getNome() + "\n"
-                    + "\t: ";
+            if (!localFrequencias.isEmpty()) {
+                output += "\t Empresa: " + nome + " \n"
+                        + "\t Funcionário: " + f.getNome() + "\n"
+                        + "\t------------------------------------------\n"
+                        + "\t Data \t Chegada \t Saida \t H Trabalhada \n";
 
+                for (Frequencia freq : localFrequencias) {
+                    output += freq.getData()
+                            + "\t"
+                            + freq.getHoraChegada()
+                            + "\t"
+                            + freq.getHoraSaida()
+                            + "\t"
+                            + freq.getDuracao()
+                            + "\n";
+                }
+            } else {
+                output = "Funcionário ainda não possui frequência registrada.";
+            }
         } else {
-            output = "Funcionário NÃO Removido. CPF inexistente!";
+            output = "Funcionário não Encontrado. CPF inexistente!";
         }
 
         return output;
@@ -109,7 +123,7 @@ public class Empresa {
     }
 
     public static String inicializarDados() {   // Implementar
-        throw new UnsupportedOperationException("Not supported yet.");
+        return "";
     }
 
 }
