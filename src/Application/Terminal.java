@@ -36,7 +36,7 @@ public class Terminal {
         Map<String, Comando> mapeamento = new HashMap<>();
         Comando comando = new ComandoInicializarDados();
         Invocador invocador = new Invocador();
-        System.out.println("@Empresa: ");
+        System.out.print("@Empresa: ");
         input = getInputTeclado();
 
         ComandoExibeFrequenciaFuncionarioPorPeriodo ceffpp = new ComandoExibeFrequenciaFuncionarioPorPeriodo(input[1], input[2], input[3]);
