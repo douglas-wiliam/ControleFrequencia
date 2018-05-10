@@ -3,6 +3,7 @@ package Application;
 import Command.ComandoExibeFrequenciaFuncionarioPorPeriodo;
 import Command.ComandoInicializarDados;
 import Command.Comando;
+import Command.ComandoAlteraNomeEmpresa;
 import Command.Invocador;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,6 +42,9 @@ public class Terminal {
         ComandoExibeFrequenciaFuncionarioPorPeriodo ceffpp = new ComandoExibeFrequenciaFuncionarioPorPeriodo(input[1], input[2], input[3]);
         mapeamento.put("freq", ceffpp);
 
+        ComandoAlteraNomeEmpresa cane = new ComandoAlteraNomeEmpresa(input[1]);
+        mapeamento.put("nome", cane);
+        
         invocador.executarComando(comando);
 
         while (!"sai".equals(input[0])) {
