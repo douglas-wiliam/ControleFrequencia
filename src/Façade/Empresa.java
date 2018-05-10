@@ -15,6 +15,7 @@ public class Empresa {
 
     private static Empresa uniqueInstance;
     private static ArrayList<Funcionario> funcionarios;
+    private static String nome;
 
     private Empresa() {
     }
@@ -26,6 +27,14 @@ public class Empresa {
 
         return uniqueInstance;
 
+    }
+
+    public static String getNome() {
+        return nome;
+    }
+    
+    public static void setNome(String nome){
+        Empresa.nome = nome;
     }
 
     private static Funcionario buscaFuncionario(String cpf) {
@@ -72,7 +81,10 @@ public class Empresa {
         if (f != null) {
             localFrequencias = f.buscarFrequenciaPorPeriodo(dataInicio, dataFim);
 
-            // Implementar criacao do output em texto tabelado
+            output += "\t Empresa: VIVA NATUREZA IND E COM DE PROD NAT LTDA \n"
+                    + "\t Funcionário: " + f.getNome() + "\n"
+                    + "\t: ";
+
         } else {
             output = "Funcionário NÃO Removido. CPF inexistente!";
         }
