@@ -23,6 +23,7 @@ public class Empresa {
     public static synchronized Empresa getInstance() {
         if (uniqueInstance == null) {
             uniqueInstance = new Empresa();
+            funcionarios = new ArrayList<>();
             nome = "Sem Nome Definido";
         }
 
