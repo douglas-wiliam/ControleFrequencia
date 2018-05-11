@@ -58,13 +58,14 @@ public class Funcionario {
     public String somarTotalHorasTrabalhadasPorPeriodo(String dataInicio, String dataFim) {
         long horas = 0;
         long minutos = 0;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        LocalDateTime localDateInicio = LocalDateTime.parse(dataInicio);
-        LocalDateTime localDateFim = LocalDateTime.parse(dataFim);
-        LocalDateTime localDateFrequencia;
+        LocalDate localDateInicio = LocalDate.parse(dataInicio, dtf);
+        LocalDate localDateFim = LocalDate.parse(dataFim, dtf);
+        LocalDate localDateFrequencia;
 
         for (Frequencia f : frequencias) {
-            localDateFrequencia = LocalDateTime.parse(f.getData());
+            localDateFrequencia = LocalDate.parse(f.getData(), dtf);
 
             if (localDateFrequencia.isAfter(localDateInicio) && localDateFrequencia.isBefore(localDateFim)) {
                 horas += f.getHoras();
