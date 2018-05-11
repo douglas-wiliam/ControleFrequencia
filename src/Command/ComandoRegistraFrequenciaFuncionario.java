@@ -3,7 +3,6 @@
  */
 package Command;
 
-import Bussiness.Funcionario;
 import Façade.Empresa;
 
 /**
@@ -12,13 +11,11 @@ import Façade.Empresa;
  */
 public class ComandoRegistraFrequenciaFuncionario implements Comando {
 
-    private final Funcionario funcionario;
     private final String data;
     private final String horaChegada;
     private final String horaSaida;
 
-    public ComandoRegistraFrequenciaFuncionario(Funcionario funcionario, String data, String horaChegada, String horaSaida) {
-        this.funcionario = funcionario;
+    public ComandoRegistraFrequenciaFuncionario(String data, String horaChegada, String horaSaida) {
         this.data = data;
         this.horaChegada = horaChegada;
         this.horaSaida = horaSaida;
@@ -26,7 +23,7 @@ public class ComandoRegistraFrequenciaFuncionario implements Comando {
 
     @Override
     public String execute() {
-        return Empresa.registraFrequenciaFuncionario(funcionario, data, horaChegada, horaSaida);
+        return Empresa.registraFrequenciaFuncionario(data, horaChegada, horaSaida);
     }
 
 }
