@@ -49,12 +49,16 @@ public class Terminal {
         invocador.executarComando(comando);
 
         while (!"sai".equals(input[0])) {
+            
+            if (input.length == 2) {    
+                cane = new ComandoAlteraNomeEmpresa(input[1]);  // Ainda não suporta nomes com espaço
+                mapeamento.put("nome", cane);
+            }
 
-            ceffpp = new ComandoExibeFrequenciaFuncionarioPorPeriodo(input[1], input[2], input[3]);
-            mapeamento.put("freq", ceffpp);
-
-            cane = new ComandoAlteraNomeEmpresa(input[1]);
-            mapeamento.put("nome", cane);
+            if (input.length == 4) {
+                ceffpp = new ComandoExibeFrequenciaFuncionarioPorPeriodo(input[1], input[2], input[3]);
+                mapeamento.put("freq", ceffpp);
+            }
 
             // Não trata comandos inexistentes
             comando = mapeamento.get(input[0]);
