@@ -88,7 +88,8 @@ public class Empresa {
                         + "\t Data \t Chegada \t Saida \t H Trabalhada \n";
 
                 for (Frequencia freq : localFrequencias) {
-                    output += freq.getData()
+                    output += "\t"
+                            + freq.getData()
                             + "\t"
                             + freq.getHoraChegada()
                             + "\t"
@@ -124,11 +125,11 @@ public class Empresa {
     }
 
     public static String inicializarDados() {
-        Funcionario f1 = new Funcionario("Douglas", "17221476527");
-        Funcionario f2 = new Funcionario("Igor", "24051455459");
-        Funcionario f3 = new Funcionario("Luiz", "36631353149");
-        //Funcionario f4 = new Funcionario("Marcus", "05474526326");
-        //Funcionario f5 = new Funcionario("Clara", "45556453675");
+        Funcionario f1 = new Funcionario("Douglas", "17221476527"); // freq 17221476527 01/01/2018 30/02/2018
+        Funcionario f2 = new Funcionario("Igor", "24051455459");    //  freq 24051455459 01/09/2001 30/09/2001
+        Funcionario f3 = new Funcionario("Luiz", "36631353149");    // freq 36631353149 01/01/2018 30/01/2018
+        //Funcionario f4 = new Funcionario("Marcus", "05474526326");    
+        //Funcionario f5 = new Funcionario("Clara", "45556453675"); 
         //Funcionario f6 = new Funcionario("Romualdo", "84261416417");
 
         f1.addFrequencia("10/01/2018", "11:45", "13:38");
@@ -139,11 +140,16 @@ public class Empresa {
 
         f2.addFrequencia("11/09/2001", "09:00", "12:00");
         f2.addFrequencia("12/09/2001", "10:00", "12:00");
-        f2.addFrequencia("13/09/2002", "18:35", "22:08");
+        f2.addFrequencia("13/09/2001", "18:35", "22:08");
 
         f3.addFrequencia("10/01/2018", "08:45", "09:38");
         f3.addFrequencia("21/01/2018", "08:37", "12:40");
         f3.addFrequencia("25/01/2018", "08:30", "14:03");
+
+        funcionarios.add(f1);
+        funcionarios.add(f2);
+        funcionarios.add(f3);
+
         return "";
     }
 
