@@ -98,6 +98,8 @@ public class Empresa {
                             + freq.getDuracao()
                             + "\n";
                 }
+                
+                output += "\t Total de Horas: " + f.somarTotalHorasTrabalhadasPorPeriodo(dataInicio, dataFim) + "\n";
             } else {
                 output = "Funcionário ainda não possui frequência registrada.";
             }
