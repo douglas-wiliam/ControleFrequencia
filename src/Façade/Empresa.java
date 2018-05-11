@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Empresa {
 
     private static Empresa uniqueInstance;
-    private static ArrayList<Funcionario> funcionarios;
     private static String nome;
+    private static Funcionario funcionario;
 
     private Empresa() {
     }
@@ -23,12 +23,10 @@ public class Empresa {
     public static synchronized Empresa getInstance() {
         if (uniqueInstance == null) {
             uniqueInstance = new Empresa();
-            funcionarios = new ArrayList<>();
             nome = "Sem Nome Definido";
+            funcionario = null;
         }
-
         return uniqueInstance;
-
     }
 
     public static String alteraNomeEmpresa(String nome) {
@@ -36,44 +34,34 @@ public class Empresa {
         return "Nome alterado com Sucesso.";
     }
 
-    private static Funcionario buscaFuncionario(String cpf) {
-        for (Funcionario f : funcionarios) {
-            if (f.getCPF().equals(cpf)) {
-                return f;
-            }
-        }
-        return null;
-    }
-
-    public static String addFuncionario(String nome, String cpf) {
-        Funcionario f = buscaFuncionario(cpf);
+    public static String criaFuncionario(String nome) {
         String output = null;
 
-        if (f == null) {
-            funcionarios.add(new Funcionario(nome, cpf));
-            output = "Funcinário Adicionado com Sucesso!";
+        if (nome.length() != 0) {
+            funcionario = new Funcionario(nome);
+            output = "Funcionário criado com Sucesso.";
         } else {
-            output = "Funcionário NÃO Adicionado. CPF já existente!";
-        }
-        return output;
-    }
-
-    public static String removeFuncionario(String cpf) {
-        Funcionario f = buscaFuncionario(cpf);
-        String output = null;
-
-        if (f != null) {
-            funcionarios.remove(f);
-            output = "Funcionário Removido com Sucesso!";
-        } else {
-            output = "Funcionário NÃO Removido. CPF inexistente!";
+            output = "Funcionário NÃO foi criado.";
         }
 
         return output;
     }
 
-    public static String exibeFrequenciaFuncionarioPorPeriodo(String cpf, String dataInicio, String dataFim) {
-        Funcionario f = buscaFuncionario(cpf);
+    public static String registraFrequenciaFuncionario(String data, String horaChegada, String horaSaida) {
+        String output = null;
+
+        if (funcionario != null) {
+            funcionario.addFrequencia(data, horaChegada, horaSaida);
+            output = "Frequência Registrada com Sucesso";
+        } else {
+            output = "Frequência NÃO Registrada.";
+        }
+
+        return output;
+
+    }
+
+    public static String exibeFrequenciaFuncionarioPorPeriodo(Funcionario f, String dataInicio, String dataFim) {
         ArrayList<Frequencia> localFrequencias;
         String output = null;
 
@@ -98,7 +86,7 @@ public class Empresa {
                             + freq.getDuracao()
                             + "\n";
                 }
-                
+
                 output += "\t Total de Horas: " + f.somarTotalHorasTrabalhadasPorPeriodo(dataInicio, dataFim) + "\n";
             } else {
                 output = "Funcionário ainda não possui frequência registrada.";
@@ -111,22 +99,8 @@ public class Empresa {
 
     }
 
-    public static String registraFrequenciaFuncionario(String cpf, String horaChegada, String horaSaida) {
-        Funcionario f = buscaFuncionario(cpf);
-        String output = null;
-
-        if (f != null) {
-            f.addFrequencia(cpf, horaChegada, horaSaida);
-            output = "Frequência de Funcionário Registrada com Sucesso";
-        } else {
-            output = "Frequência de Funcionário NÃO Registrada. CPF inexistente!";
-        }
-
-        return output;
-
-    }
-
-    public static String inicializarDados() {
+    /*
+    
         Funcionario f1 = new Funcionario("Douglas", "17221476527"); // freq 17221476527 01/01/2018 30/02/2018
         Funcionario f2 = new Funcionario("Igor", "24051455459");    //  freq 24051455459 01/09/2001 30/09/2001
         Funcionario f3 = new Funcionario("Luiz", "36631353149");    // freq 36631353149 01/01/2018 30/01/2018
@@ -147,12 +121,5 @@ public class Empresa {
         f3.addFrequencia("10/01/2018", "08:45", "09:38");
         f3.addFrequencia("21/01/2018", "08:37", "12:40");
         f3.addFrequencia("25/01/2018", "08:30", "14:03");
-
-        funcionarios.add(f1);
-        funcionarios.add(f2);
-        funcionarios.add(f3);
-
-        return "";
-    }
-
+     */
 }
