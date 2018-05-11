@@ -3,8 +3,10 @@
  */
 package Bussiness;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -36,13 +38,14 @@ public class Funcionario {
 
     public ArrayList<Frequencia> buscarFrequenciaPorPeriodo(String dataInicio, String dataFim) {
         ArrayList<Frequencia> localFrequencias = new ArrayList<>();
-
-        LocalDateTime localDateInicio = LocalDateTime.parse(dataInicio);
-        LocalDateTime localDateFim = LocalDateTime.parse(dataFim);
-        LocalDateTime localDateFrequencia;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        LocalDate localDateInicio = LocalDate.parse(dataInicio, dtf);
+        LocalDate localDateFim = LocalDate.parse(dataFim, dtf);
+        LocalDate localDateFrequencia;
 
         for (Frequencia f : frequencias) {
-            localDateFrequencia = LocalDateTime.parse(f.getData());
+            localDateFrequencia = LocalDate.parse(f.getData(), dtf);
 
             if (localDateFrequencia.isAfter(localDateInicio) && localDateFrequencia.isBefore(localDateFim)) {
                 localFrequencias.add(f);
