@@ -11,19 +11,17 @@ import Façade.Empresa;
  */
 public class ComandoExibeFrequenciaFuncionarioPorPeriodo implements Comando {
 
-    private final String cpf;
     private final String dataInicio;
     private final String dataFim;
 
-    public ComandoExibeFrequenciaFuncionarioPorPeriodo(String cpf, String dataInicio, String dataFim) {
-        this.cpf = cpf;
+    public ComandoExibeFrequenciaFuncionarioPorPeriodo(String dataInicio, String dataFim) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
     }
 
     @Override
     public String execute() {
-        return Empresa.exibeFrequenciaFuncionarioPorPeriodo(cpf, dataInicio, dataFim);
+        return Empresa.exibeFrequenciaFuncionarioPorPeriodo(dataInicio, dataFim);
     }
 
 }
