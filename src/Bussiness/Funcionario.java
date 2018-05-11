@@ -14,21 +14,15 @@ import java.time.format.DateTimeFormatter;
 public class Funcionario {
 
     private final String nome;
-    private final String cpf;
     private ArrayList<Frequencia> frequencias;
 
     public Funcionario(String nome, String cpf) {
         frequencias = new ArrayList<>();
         this.nome = nome;
-        this.cpf = cpf;
     }
 
     public String getNome() {
         return nome;
-    }
-
-    public String getCPF() {
-        return cpf;
     }
 
     public void addFrequencia(String data, String horaChegada, String horaSaida) {
@@ -38,7 +32,7 @@ public class Funcionario {
     public ArrayList<Frequencia> buscarFrequenciaPorPeriodo(String dataInicio, String dataFim) {
         ArrayList<Frequencia> localFrequencias = new ArrayList<>();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        
+
         LocalDate localDateInicio = LocalDate.parse(dataInicio, dtf);
         LocalDate localDateFim = LocalDate.parse(dataFim, dtf);
         LocalDate localDateFrequencia;
