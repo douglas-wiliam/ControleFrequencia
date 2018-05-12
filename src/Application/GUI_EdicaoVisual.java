@@ -325,7 +325,7 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoParaNomeActionPerformed
 
     private void BotaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCalcularActionPerformed
-        int linha, coluna;
+        int linha;
         String funcionario, data, horaChegada, horaSaida;
 
         if (Tabela.getEditingRow() == -1) {
