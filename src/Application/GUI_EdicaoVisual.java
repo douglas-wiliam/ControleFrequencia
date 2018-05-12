@@ -8,6 +8,7 @@ import Command.ComandoCriaFuncionario;
 import Command.ComandoExibeFrequenciaFuncionarioPorPeriodo;
 import Command.ComandoRegistraFrequenciaFuncionario;
 import Command.Invocador;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,8 +16,7 @@ import Command.Invocador;
  */
 public class GUI_EdicaoVisual extends javax.swing.JFrame {
 
-    private final int MAX_LINHAS_TABELA;
-    private final int MAX_COLUNAS_TABELA;
+    private int LINHAS_TABELA;
 
     private ComandoExibeFrequenciaFuncionarioPorPeriodo ceffpp;
     private ComandoAlteraNomeEmpresa cane;
@@ -27,8 +27,7 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
 
     public GUI_EdicaoVisual() {
         initComponents();
-        MAX_LINHAS_TABELA = 25;
-        MAX_COLUNAS_TABELA = 3;
+        LINHAS_TABELA = 25;
         ceffpp = null;
         cane = null;
         ccf = null;
@@ -56,6 +55,7 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
         LabelNome = new javax.swing.JLabel();
         BotaoCalcular = new javax.swing.JButton();
         BotaoLimparTudo = new javax.swing.JButton();
+        BotaoAdicionarLinha = new javax.swing.JButton();
 
         CaixaDeDialogo.setMinimumSize(new java.awt.Dimension(320, 180));
         CaixaDeDialogo.setResizable(false);
@@ -147,31 +147,6 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
                 {null, null, null}
             },
             new String [] {
@@ -212,6 +187,13 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
             }
         });
 
+        BotaoAdicionarLinha.setText("Adicionar Linha");
+        BotaoAdicionarLinha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAdicionarLinhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelDeFundoLayout = new javax.swing.GroupLayout(PainelDeFundo);
         PainelDeFundo.setLayout(PainelDeFundoLayout);
         PainelDeFundoLayout.setHorizontalGroup(
@@ -227,7 +209,9 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CampoParaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(PainelDeFundoLayout.createSequentialGroup()
-                        .addGap(189, 189, 189)
+                        .addGap(90, 90, 90)
+                        .addComponent(BotaoAdicionarLinha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotaoLimparTudo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotaoCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -245,7 +229,8 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PainelDeFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoCalcular)
-                    .addComponent(BotaoLimparTudo))
+                    .addComponent(BotaoLimparTudo)
+                    .addComponent(BotaoAdicionarLinha))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -277,11 +262,13 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
         int linha, coluna;
         String funcionario, data, horaChegada, horaSaida;
 
+        Tabela.getEditingRow();
+
         funcionario = (String) CampoParaNome.getText();
         ccf = new ComandoCriaFuncionario(funcionario);
         invocador.executarComando(ccf);
 
-        for (linha = 0; linha < MAX_LINHAS_TABELA; linha++) {
+        for (linha = 0; linha < LINHAS_TABELA; linha++) {
 
             if (Tabela.getValueAt(linha, 0) == null) {
                 break;
@@ -309,15 +296,22 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
 
         CampoParaNome.setText("");
 
-        for (linha = 0; linha < MAX_LINHAS_TABELA; linha++) {
+        for (linha = 0; linha < LINHAS_TABELA; linha++) {
             Tabela.setValueAt(null, linha, 0);
             Tabela.setValueAt(null, linha, 1);
             Tabela.setValueAt(null, linha, 2);
         }
     }//GEN-LAST:event_BotaoLimparTudoActionPerformed
 
+    private void BotaoAdicionarLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarLinhaActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.addRow(new Object[]{null, null, null});
+        LINHAS_TABELA++;
+    }//GEN-LAST:event_BotaoAdicionarLinhaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoAdicionarLinha;
     private javax.swing.JButton BotaoCalcular;
     private javax.swing.JButton BotaoGerarPDF;
     private javax.swing.JButton BotaoLimparTudo;

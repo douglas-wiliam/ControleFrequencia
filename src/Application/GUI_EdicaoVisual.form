@@ -170,7 +170,9 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="BotaoAdicionarLinha" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="BotaoLimparTudo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="BotaoCalcular" min="-2" pref="101" max="-2" attributes="0"/>
@@ -194,6 +196,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BotaoCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BotaoLimparTudo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoAdicionarLinha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -211,7 +214,7 @@
             <Component class="javax.swing.JTable" name="Tabela">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="50">
+                  <Table columnCount="3" rowCount="25">
                     <Column editable="true" title="Data" type="java.lang.String"/>
                     <Column editable="true" title="Chegada" type="java.lang.String"/>
                     <Column editable="true" title="Saida" type="java.lang.String"/>
@@ -270,6 +273,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLimparTudoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="BotaoAdicionarLinha">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Adicionar Linha"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAdicionarLinhaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
