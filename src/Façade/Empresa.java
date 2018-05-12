@@ -70,7 +70,7 @@ public class Empresa {
             localFrequencias = funcionario.buscarFrequenciaPorPeriodo(dataInicio, dataFim);
 
             if (!localFrequencias.isEmpty()) {
-                output += "\t Empresa: " + nome + " \n"
+                output = "\t Empresa: " + nome + " \n"
                         + "\t Funcionário: " + funcionario.getNome() + "\n"
                         + "\t------------------------------------------\n"
                         + "\t Data \t Chegada \t Saida \t H Trabalhada \n";
