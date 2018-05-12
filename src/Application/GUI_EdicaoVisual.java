@@ -112,6 +112,7 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TITAN - COMPUTACAO INTELIGENTE");
         setMaximumSize(new java.awt.Dimension(640, 360));
         setMinimumSize(new java.awt.Dimension(640, 360));
         setResizable(false);
