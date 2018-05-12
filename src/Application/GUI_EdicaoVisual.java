@@ -44,10 +44,14 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CaixaDeDialogo = new javax.swing.JDialog();
+        Dialogo_GerarPDF = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         BotaoGerarPDF = new javax.swing.JButton();
         LabelCaixaDialogo = new javax.swing.JLabel();
+        Dialogo_EditandoTabela = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        BotaoOK_EditandoTabela = new javax.swing.JButton();
+        LabelEditandoTabela = new javax.swing.JLabel();
         PainelDeFundo = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
@@ -57,8 +61,8 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
         BotaoLimparTudo = new javax.swing.JButton();
         BotaoAdicionarLinha = new javax.swing.JButton();
 
-        CaixaDeDialogo.setMinimumSize(new java.awt.Dimension(320, 180));
-        CaixaDeDialogo.setResizable(false);
+        Dialogo_GerarPDF.setMinimumSize(new java.awt.Dimension(320, 180));
+        Dialogo_GerarPDF.setResizable(false);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -94,21 +98,82 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
-        javax.swing.GroupLayout CaixaDeDialogoLayout = new javax.swing.GroupLayout(CaixaDeDialogo.getContentPane());
-        CaixaDeDialogo.getContentPane().setLayout(CaixaDeDialogoLayout);
-        CaixaDeDialogoLayout.setHorizontalGroup(
-            CaixaDeDialogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CaixaDeDialogoLayout.createSequentialGroup()
+        javax.swing.GroupLayout Dialogo_GerarPDFLayout = new javax.swing.GroupLayout(Dialogo_GerarPDF.getContentPane());
+        Dialogo_GerarPDF.getContentPane().setLayout(Dialogo_GerarPDFLayout);
+        Dialogo_GerarPDFLayout.setHorizontalGroup(
+            Dialogo_GerarPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dialogo_GerarPDFLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        CaixaDeDialogoLayout.setVerticalGroup(
-            CaixaDeDialogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CaixaDeDialogoLayout.createSequentialGroup()
+        Dialogo_GerarPDFLayout.setVerticalGroup(
+            Dialogo_GerarPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Dialogo_GerarPDFLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        Dialogo_EditandoTabela.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        Dialogo_EditandoTabela.setMaximumSize(new java.awt.Dimension(240, 140));
+        Dialogo_EditandoTabela.setMinimumSize(new java.awt.Dimension(240, 140));
+        Dialogo_EditandoTabela.setPreferredSize(new java.awt.Dimension(240, 140));
+        Dialogo_EditandoTabela.setResizable(false);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel3.setMaximumSize(new java.awt.Dimension(200, 88));
+        jPanel3.setMinimumSize(new java.awt.Dimension(200, 88));
+        jPanel3.setPreferredSize(new java.awt.Dimension(200, 88));
+
+        BotaoOK_EditandoTabela.setText("OK");
+        BotaoOK_EditandoTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoOK_EditandoTabelaActionPerformed(evt);
+            }
+        });
+
+        LabelEditandoTabela.setText("Você ainda está editando!");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LabelEditandoTabela))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(BotaoOK_EditandoTabela)))
+                .addGap(29, 29, 29))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LabelEditandoTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BotaoOK_EditandoTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
+        );
+
+        javax.swing.GroupLayout Dialogo_EditandoTabelaLayout = new javax.swing.GroupLayout(Dialogo_EditandoTabela.getContentPane());
+        Dialogo_EditandoTabela.getContentPane().setLayout(Dialogo_EditandoTabelaLayout);
+        Dialogo_EditandoTabelaLayout.setHorizontalGroup(
+            Dialogo_EditandoTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Dialogo_EditandoTabelaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        Dialogo_EditandoTabelaLayout.setVerticalGroup(
+            Dialogo_EditandoTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Dialogo_EditandoTabelaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -263,29 +328,32 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
         int linha, coluna;
         String funcionario, data, horaChegada, horaSaida;
 
-        Tabela.getEditingRow();
+        if (Tabela.getEditingRow() == -1) {
 
-        funcionario = (String) CampoParaNome.getText();
-        ccf = new ComandoCriaFuncionario(funcionario);
-        invocador.executarComando(ccf);
+            funcionario = (String) CampoParaNome.getText();
+            ccf = new ComandoCriaFuncionario(funcionario);
+            invocador.executarComando(ccf);
 
-        for (linha = 0; linha < LINHAS_TABELA; linha++) {
+            for (linha = 0; linha < LINHAS_TABELA; linha++) {
 
-            if (Tabela.getValueAt(linha, 0) == null) {
-                break;
+                if (Tabela.getValueAt(linha, 0) == null) {
+                    break;
+                }
+
+                data = (String) Tabela.getValueAt(linha, 0);
+                horaChegada = (String) Tabela.getValueAt(linha, 1);
+                horaSaida = (String) Tabela.getValueAt(linha, 2);
+
+                crff = new ComandoRegistraFrequenciaFuncionario(data, horaChegada, horaSaida);
+                invocador.executarComando(crff);
             }
 
-            data = (String) Tabela.getValueAt(linha, 0);
-            horaChegada = (String) Tabela.getValueAt(linha, 1);
-            horaSaida = (String) Tabela.getValueAt(linha, 2);
+            ceffpp = new ComandoExibeFrequenciaFuncionarioPorPeriodo("01/01/1900", "31/12/2099");
 
-            crff = new ComandoRegistraFrequenciaFuncionario(data, horaChegada, horaSaida);
-            invocador.executarComando(crff);
+            System.out.print(invocador.executarComando(ceffpp));
+        } else {
+            Dialogo_EditandoTabela.setVisible(true);
         }
-
-        ceffpp = new ComandoExibeFrequenciaFuncionarioPorPeriodo("01/01/1900", "31/12/2099");
-
-        System.out.print(invocador.executarComando(ceffpp));
     }//GEN-LAST:event_BotaoCalcularActionPerformed
 
     private void BotaoGerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGerarPDFActionPerformed
@@ -310,19 +378,27 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
         LINHAS_TABELA++;
     }//GEN-LAST:event_BotaoAdicionarLinhaActionPerformed
 
+    private void BotaoOK_EditandoTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoOK_EditandoTabelaActionPerformed
+        Dialogo_EditandoTabela.dispose();
+    }//GEN-LAST:event_BotaoOK_EditandoTabelaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoAdicionarLinha;
     private javax.swing.JButton BotaoCalcular;
     private javax.swing.JButton BotaoGerarPDF;
     private javax.swing.JButton BotaoLimparTudo;
-    private javax.swing.JDialog CaixaDeDialogo;
+    private javax.swing.JButton BotaoOK_EditandoTabela;
     private javax.swing.JTextField CampoParaNome;
+    private javax.swing.JDialog Dialogo_EditandoTabela;
+    private javax.swing.JDialog Dialogo_GerarPDF;
     private javax.swing.JLabel LabelCaixaDialogo;
+    private javax.swing.JLabel LabelEditandoTabela;
     private javax.swing.JLabel LabelNome;
     private javax.swing.JPanel PainelDeFundo;
     private javax.swing.JTable Tabela;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
