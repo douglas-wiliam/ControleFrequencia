@@ -7,6 +7,7 @@ import Command.ComandoAlteraNomeEmpresa;
 import Command.ComandoCriaFuncionario;
 import Command.ComandoExibeFrequenciaFuncionarioPorPeriodo;
 import Command.ComandoRegistraFrequenciaFuncionario;
+import Command.Invocador;
 
 /**
  *
@@ -16,10 +17,13 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
 
     private final int MAX_LINHAS_TABELA;
     private final int MAX_COLUNAS_TABELA;
+
     private ComandoExibeFrequenciaFuncionarioPorPeriodo ceffpp;
     private ComandoAlteraNomeEmpresa cane;
     private ComandoCriaFuncionario ccf;
     private ComandoRegistraFrequenciaFuncionario crff;
+
+    Invocador invocador;
 
     public GUI_EdicaoVisual() {
         initComponents();
@@ -29,6 +33,7 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
         cane = null;
         ccf = null;
         crff = null;
+        invocador = new Invocador();
     }
 
     /**
@@ -269,7 +274,30 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoParaNomeActionPerformed
 
     private void BotaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCalcularActionPerformed
+        int linha, coluna;
+        String funcionario, data, horaChegada, horaSaida;
 
+        funcionario = (String) CampoParaNome.getText();
+        ccf = new ComandoCriaFuncionario(funcionario);
+        invocador.executarComando(ccf);
+
+        for (linha = 0; linha < MAX_LINHAS_TABELA; linha++) {
+
+            if (Tabela.getValueAt(linha, 0) == null) {
+                break;
+            }
+
+            data = (String) Tabela.getValueAt(linha, 0);
+            horaChegada = (String) Tabela.getValueAt(linha, 1);
+            horaSaida = (String) Tabela.getValueAt(linha, 2);
+
+            crff = new ComandoRegistraFrequenciaFuncionario(data, horaChegada, horaSaida);
+            invocador.executarComando(crff);
+        }
+
+        ceffpp = new ComandoExibeFrequenciaFuncionarioPorPeriodo("01/01/1900", "31/12/2099");
+
+        System.out.print(invocador.executarComando(ceffpp));
     }//GEN-LAST:event_BotaoCalcularActionPerformed
 
     private void BotaoGerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGerarPDFActionPerformed
@@ -277,7 +305,15 @@ public class GUI_EdicaoVisual extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoGerarPDFActionPerformed
 
     private void BotaoLimparTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparTudoActionPerformed
-        // TODO add your handling code here:
+        int linha;
+
+        CampoParaNome.setText("");
+
+        for (linha = 0; linha < MAX_LINHAS_TABELA; linha++) {
+            Tabela.setValueAt(null, linha, 0);
+            Tabela.setValueAt(null, linha, 1);
+            Tabela.setValueAt(null, linha, 2);
+        }
     }//GEN-LAST:event_BotaoLimparTudoActionPerformed
 
 
