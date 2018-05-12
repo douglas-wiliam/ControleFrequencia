@@ -15,7 +15,9 @@ public class Terminal {
 
         Empresa.getInstance();
 
-        GUI gui = new GUI();
+        //GUI gui = new GUI();
+        //gui.setVisible(true);
+        GUI_EdicaoVisual gui = new GUI_EdicaoVisual();
         gui.setVisible(true);
     }
 
